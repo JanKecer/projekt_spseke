@@ -1,2 +1,4 @@
 # projekt_spseke
-My first repo :-}
+My first repo 🙂
+
+I like ☕ 
