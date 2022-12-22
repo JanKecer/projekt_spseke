@@ -3,14 +3,14 @@
       <h1>Zoznam ľudí</h1>
       <section class="list">
         <section v-for="person of persons" v-bind:key="person"
-        v-bind:class="{'card-container':true,'card':true,'adult':person.birthday>=18 }"><!--v tomto prípade clase priradíme objekt, ktorého vlastnosti predstavujú jednotlivé triedy a ich hodnoti predstavujú bool vyjadrujúci, kedy sa má daná trieda pridať danému elemntu-->
+        v-bind:class="{'card-container':true,'card':true,'adult':person.birthday>=2004 }"><!--v tomto prípade clase priradíme objekt, ktorého vlastnosti predstavujú jednotlivé triedy a ich hodnoti predstavujú bool vyjadrujúci, kedy sa má daná trieda pridať danému elemntu-->
 		<!--alebo takto tu to poriešime ternárnym operátorom...
 		<section v-for="person of persons" v-bind:key="person" 
 		v-bind:class="person.birthday>=18 ? 'adult card-container card' : 'card-container card'">
 		-->
           <article class="info">
             <div class="name">{{person.fname}} {{person.lname}}</div>
-            <div class="birthday">{{person.birthday}} <span class="year-title">year</span></div>
+            <div class="birthday"><span class="year-title">birthday : </span>{{person.birthday}} <span class="year-title">age : </span> {{person.age}} </div>
           </article>
           <footer class="footer-card">
             <span class="btn edit">Edit</span>
@@ -26,33 +26,38 @@ let persons = [
 		{
 			fname: "Magdalena",
 			lname: "Mikulova",
-			birthday: 22,
-			
+			birthday: 2000,
+			age:22
 		},
 		{
 			fname: "Mirka",
 			lname: "Makovicova",
-			birthday: 30
+			birthday: 1990,
+			age:32
 		},
 		{
 			fname: "Hugo",
 			lname: "Hugovic",
-			birthday: 15
+			birthday: 2007,
+			age:15
 		},
 		{
 			fname: "Miki",
 			lname: "Hric",
-			birthday: 19
+			birthday: 2003,
+			age:19
 		},
 		{
 			fname: "Andrea",
 			lname: "Veresova",
-			birthday: 40
+			birthday: 1982,
+			age:40
 		},
 		{
 			fname: "Nora",
 			lname: "Mojsejova",
-			birthday: 13
+			birthday: 2009,
+			age:13
 		},
 	]
 </script>
@@ -63,6 +68,7 @@ let persons = [
 		font-size: 10px;	
 		font-family: 'Oswald', sans-serif;
 		padding: 1rem;
+		background-image: url('https://static.vecteezy.com/system/resources/thumbnails/007/023/595/small/pet-footprints-horizontal-seamless-pattern-animal-print-gold-prints-of-tracks-of-a-cat-dog-on-a-black-background-pet-paw-print-silhouettes-cute-texture-vector.jpg');
 	}
 	main {
 		display: flex;
@@ -77,21 +83,26 @@ let persons = [
 		justify-content: stretch;
 		font-size: 1.2rem;
 	}
+	h1{
+		color: rgb(255, 255, 255);
+	}
 	.card-container {
 		flex-grow: 1;
 	}
 	.card {
-		background: rgba(255,255,255, 1);
-		border: 1px solid #bbb;
-		color: #444;
-		box-shadow: 0 3px 5px rgba(0,0,0,.2);
+		background: rgb(13, 240, 244);
+		border: 1px solid rgb(0, 0, 0);
+		color: rgb(255, 0, 0);
+		box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 		border-top-width: 5px;
-		border-top-color: dodgerblue;
+		border-top-color: rgb(68, 0, 255);
 	}
 	.card.adult {
-		border-top-color: orange;
+		border-top-color: rgb(205, 232, 3);
 	}
-	.card:hover {}
+	.card:hover {
+		background: rgba(255, 255, 255, 0.752);
+	}
 	.info {
 		padding: 1rem;
 		text-align: center;
@@ -103,14 +114,14 @@ let persons = [
 		font-size: 1rem;
 	}
 	.year-title {
-		color: #bbbbbb;
+		color: #000000;
 	}
 	.footer-card {
 		display: flex;
 	}
 	.btn {
 		padding: .75rem 2rem;
-		color: white;
+		color: rgb(255, 255, 255);
 		width: 50px;
 		flex-grow: 1;
 		text-align: center;
@@ -125,7 +136,8 @@ let persons = [
 	}
 	.btn:hover {
 		opacity: .3;
-		cursor: pointer;;
+		cursor: pointer;
+		background: rgb(0, 68, 255);
 	}
 </style>
 
